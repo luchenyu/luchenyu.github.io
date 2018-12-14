@@ -68,8 +68,8 @@ async function init()
     await loadDict()
     console.log('Finish loading dicionary')
     console.log('Start loading model') 
-    const MODEL_URL = 'model/tensorflowjs_model.pb'
-    const WEIGHTS_URL = 'model/weights_manifest.json'
+    const MODEL_URL = 'https://luchenyu.github.io/text-classification/model/tensorflowjs_model.pb'
+    const WEIGHTS_URL = 'https://luchenyu.github.io/text-classification/model/weights_manifest.json'
     model = await loadFrozenModel(MODEL_URL, WEIGHTS_URL)
     document.getElementById('status').innerHTML = 'Model loaded'
     console.log('Finish loading model') 
