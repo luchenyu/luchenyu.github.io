@@ -2,6 +2,8 @@
 <html>
 <head>
  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.8.0"></script>
+ <script type="module" src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+ <script type="module" src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <script>
@@ -66,7 +68,9 @@ async function init()
     await loadDict()
     console.log('Finish loading dicionary')
     console.log('Start loading model') 
-    model = await tf.loadModel('model/model.json')
+    const MODEL_URL = 'https://.../model/tensorflowjs_model.pb'
+    const WEIGHTS_URL = 'https://.../model/weights_manifest.json'
+    model = await loadFrozenModel(MODEL_URL, WEIGHTS_URL)
     document.getElementById('status').innerHTML = 'Model loaded'
     console.log('Finish loading model') 
 }
